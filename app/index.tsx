@@ -1,3 +1,4 @@
+import { router } from "expo-router";
 import { useState } from "react";
 import { Button, StyleSheet, Text, TextInput, View } from "react-native";
 
@@ -14,7 +15,6 @@ export default function LoginScreen() {
     <View style={styles.container}>
       <Text style={styles.title}>¡Bienvenido!</Text>
       <Text style={styles.subtitle}>Inicia sesión para continuar</Text>
-
       <TextInput
         style={styles.input}
         placeholder="Identificación"
@@ -23,7 +23,6 @@ export default function LoginScreen() {
         autoCapitalize="none"
         keyboardType="numeric"
       />
-
       <TextInput
         style={styles.input}
         placeholder="Contraseña"
@@ -32,8 +31,23 @@ export default function LoginScreen() {
         secureTextEntry
       />
 
+      <View style={styles.linksContainer}>
+        <Text
+          style={styles.link}
+          onPress={() => router.push("/Forgot_Password")}
+        >
+          ¿Olvidó su contraseña?
+        </Text>
+      </View>
+
       <View style={styles.buttonContainer}>
         <Button title="Iniciar Sesión" onPress={handleLogin} />
+      </View>
+
+      <View style={styles.linksContainer}>
+        <Text style={styles.link} onPress={() => router.push("/Sign_In")}>
+          Registrarme
+        </Text>
       </View>
     </View>
   );
@@ -69,5 +83,15 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     marginTop: 8,
+  },
+  linksContainer: {
+    marginTop: 20,
+    alignItems: "center",
+    gap: 8,
+  },
+  link: {
+    color: "#007AFF", // azul estilo iOS
+    fontSize: 16,
+    textDecorationLine: "underline",
   },
 });
