@@ -1,10 +1,11 @@
 import { router } from "expo-router";
 import { useState } from "react";
-import { Button, StyleSheet, Text, TextInput, View } from "react-native";
+import { Button, Image, StyleSheet, Text, TextInput, View } from "react-native";
 
 export default function LoginScreen() {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
+  const logo = require("../assets/images/logo.svg");
 
   const handleLogin = () => {
     console.log("Identification:", id);
@@ -13,6 +14,8 @@ export default function LoginScreen() {
 
   return (
     <View style={styles.container}>
+      <Image source={logo} style={styles.logo} resizeMode="contain" />
+
       <Text style={styles.title}>¡Bienvenido!</Text>
       <Text style={styles.subtitle}>Inicia sesión para continuar</Text>
       <TextInput
@@ -59,6 +62,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     paddingHorizontal: 24,
     backgroundColor: "#fff",
+  },
+  logo: {
+    width: 120,
+    height: 120,
+    alignSelf: "center",
+    marginBottom: 24,
   },
   title: {
     fontSize: 24,
