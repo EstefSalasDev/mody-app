@@ -2,25 +2,26 @@ import { useState } from "react";
 import { Button, StyleSheet, Text, TextInput, View } from "react-native";
 
 export default function LoginScreen() {
-  const [email, setEmail] = useState("");
+  const [id, setId] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    console.log("Email:", email);
+    console.log("Identification:", id);
     console.log("Password:", password);
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Iniciar sesión</Text>
+      <Text style={styles.title}>¡Bienvenido!</Text>
+      <Text style={styles.subtitle}>Inicia sesión para continuar</Text>
 
       <TextInput
         style={styles.input}
-        placeholder="Correo electrónico"
-        value={email}
-        onChangeText={setEmail}
+        placeholder="Identificación"
+        value={id}
+        onChangeText={setId}
         autoCapitalize="none"
-        keyboardType="email-address"
+        keyboardType="numeric"
       />
 
       <TextInput
@@ -32,7 +33,7 @@ export default function LoginScreen() {
       />
 
       <View style={styles.buttonContainer}>
-        <Button title="Entrar" onPress={handleLogin} />
+        <Button title="Iniciar Sesión" onPress={handleLogin} />
       </View>
     </View>
   );
@@ -50,6 +51,12 @@ const styles = StyleSheet.create({
     marginBottom: 24,
     textAlign: "center",
     fontWeight: "600",
+  },
+  subtitle: {
+    fontSize: 16,
+    color: "#555",
+    textAlign: "center",
+    marginBottom: 20,
   },
   input: {
     borderWidth: 1,
