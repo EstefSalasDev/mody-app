@@ -1,3 +1,5 @@
+import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
+import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 import { router } from "expo-router";
 import { useState } from "react";
 import { Button, Image, StyleSheet, Text, TextInput, View } from "react-native";
@@ -5,7 +7,7 @@ import { Button, Image, StyleSheet, Text, TextInput, View } from "react-native";
 export default function LoginScreen() {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
-  const logo = require("../assets/images/logo.svg");
+  const logo = require("../assets/images/favicon.png");
 
   const handleLogin = () => {
     console.log("Identification:", id);
@@ -18,21 +20,29 @@ export default function LoginScreen() {
 
       <Text style={styles.title}>¡Bienvenido!</Text>
       <Text style={styles.subtitle}>Inicia sesión para continuar</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Identificación"
-        value={id}
-        onChangeText={setId}
-        autoCapitalize="none"
-        keyboardType="numeric"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Contraseña"
-        value={password}
-        onChangeText={setPassword}
-        secureTextEntry
-      />
+
+      <View style={styles.inputContainer}>
+        <FontAwesome6 name="user-large" size={24} color="black" />
+        <TextInput
+          style={styles.input}
+          placeholder="Identificación"
+          value={id}
+          onChangeText={setId}
+          autoCapitalize="none"
+          keyboardType="numeric"
+        />
+      </View>
+
+      <View style={styles.inputContainer}>
+        <FontAwesome5 name="lock" size={24} color="black" />
+        <TextInput
+          style={styles.input}
+          placeholder="Contraseña"
+          value={password}
+          onChangeText={setPassword}
+          secureTextEntry
+        />
+      </View>
 
       <View style={styles.linksContainer}>
         <Text
@@ -81,13 +91,25 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginBottom: 20,
   },
-  input: {
+  inputContainer: {
+    flexDirection: "row",
+    alignItems: "center",
     borderWidth: 1,
     borderColor: "#ccc",
-    paddingVertical: 10,
+    borderRadius: 8,
     paddingHorizontal: 12,
-    borderRadius: 6,
+    paddingVertical: 10,
     marginBottom: 16,
+    backgroundColor: "#fff",
+  },
+  inputIcon: {
+    width: 20,
+    height: 20,
+    marginRight: 10,
+    tintColor: "#555", // opcional, cambia el color del icono
+  },
+  input: {
+    flex: 1,
     fontSize: 16,
   },
   buttonContainer: {
