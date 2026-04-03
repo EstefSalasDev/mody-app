@@ -4,7 +4,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
 import { useState } from "react";
 import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
-import styles from "../app/styles/index-style.js"; // ← IMPORTA TU CSS REAL
+import styles from "../app/styles/index-style.js";
 
 export default function LoginScreen() {
   const [id, setId] = useState("");
@@ -60,6 +60,7 @@ export default function LoginScreen() {
         ¿Olvidó su contraseña?
       </Text>
 
+      {/* Botón de inicio de sesión */}
       <TouchableOpacity onPress={() => console.log("Login")}>
         <LinearGradient
           colors={["#3163D6", "#6D92E0"]} // azul oscuro → azul claro
