@@ -72,7 +72,7 @@ export default function LoginScreen() {
       </TouchableOpacity>
 
       <Text style={styles.linkSignIn} onPress={() => router.push("/Sign_In")}>
-        Registrarme
+        ¿No tienes una cuenta? Regístrate
       </Text>
     </View>
   );
