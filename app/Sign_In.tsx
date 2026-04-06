@@ -1,18 +1,17 @@
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
-import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
 import { useState } from "react";
 import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
 import styles from "./styles/Sign_In-style.js";
 
-export default function LoginScreen() {
+export default function SigninScreen() {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
   const [passwordrepeat, setPasswordRepeat] = useState("");
   const logo = require("../assets/images/favicon.png");
 
-  const handleLogin = () => {
+  const handleSignin = () => {
     console.log("Identification:", id);
     console.log("Password:", password);
     console.log("PasswordRepeat:", passwordrepeat);
@@ -27,12 +26,7 @@ export default function LoginScreen() {
 
       {/* Input identificación */}
       <View style={styles.inputContainer}>
-        <FontAwesome6
-          name="user-large"
-          size={22}
-          color="#555"
-          style={styles.icon}
-        />
+        <FontAwesome5 name="user" size={24} style={styles.icon} solid />
         <TextInput
           style={styles.input}
           placeholder="Identificación"
@@ -45,7 +39,7 @@ export default function LoginScreen() {
 
       {/* Input contraseña */}
       <View style={styles.inputContainer}>
-        <FontAwesome5 name="lock" size={22} color="#555" style={styles.icon} />
+        <FontAwesome5 name="lock" size={24} style={styles.icon} />
         <TextInput
           style={styles.input}
           placeholder="Escriba una contraseña"
@@ -57,7 +51,7 @@ export default function LoginScreen() {
 
       {/* Input contraseña nuevamente */}
       <View style={styles.inputContainer}>
-        <FontAwesome5 name="lock" size={22} color="#555" style={styles.icon} />
+        <FontAwesome5 name="lock" size={24} color="#555" style={styles.icon} />
         <TextInput
           style={styles.input}
           placeholder="Escriba la contraseña de nuevo"

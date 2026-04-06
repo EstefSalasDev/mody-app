@@ -1,5 +1,4 @@
-import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
-import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
+import FontAwesome5 from "@expo/vector-icons/FontAwesome5.js";
 import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
 import { useState } from "react";
@@ -25,12 +24,7 @@ export default function LoginScreen() {
 
       {/* Input identificación */}
       <View style={styles.inputContainer}>
-        <FontAwesome6
-          name="user-large"
-          size={22}
-          color="#555"
-          style={styles.icon}
-        />
+        <FontAwesome5 name="user" size={24} style={styles.icon} solid />
         <TextInput
           style={styles.input}
           placeholder="Identificación"
@@ -43,7 +37,7 @@ export default function LoginScreen() {
 
       {/* Input contraseña */}
       <View style={styles.inputContainer}>
-        <FontAwesome5 name="lock" size={22} color="#555" style={styles.icon} />
+        <FontAwesome5 name="lock" size={24} style={styles.icon} />
         <TextInput
           style={styles.input}
           placeholder="Contraseña"
