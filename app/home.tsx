@@ -3,7 +3,6 @@ import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
 import { useState } from "react";
 import { Image, Pressable, Text, View } from "react-native";
-import { supabase } from "../lib/supabase";
 import styles from "./styles/home-style.js";
 
 export default function HomeScreen() {
@@ -29,8 +28,7 @@ export default function HomeScreen() {
                 style={styles.gradientMenu}
               >
                 <Pressable
-                  onPress={async () => {
-                    await supabase.auth.signOut();
+                  onPress={() => {
                     setOpen(false);
                     router.replace("/");
                   }}
