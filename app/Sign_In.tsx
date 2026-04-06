@@ -2,19 +2,50 @@ import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
 import { useState } from "react";
-import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
+import {
+  Alert,
+  Image,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import { supabase } from "../lib/supabase";
 import styles from "./styles/Sign_In-style.js";
 
 export default function SigninScreen() {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
   const [passwordrepeat, setPasswordRepeat] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
   const logo = require("../assets/images/favicon.png");
 
-  const handleSignin = () => {
-    console.log("Identification:", id);
-    console.log("Password:", password);
-    console.log("PasswordRepeat:", passwordrepeat);
+  const handleSignin = async () => {
+    if (password !== passwordrepeat) {
+      setErrorMessage("Las contraseñas no coinciden");
+      return;
+    }
+
+    setLoading(true);
+    setErrorMessage("");
+
+    const { data, error } = await supabase.auth.signUp({
+      email: id, // Usar id como email
+      password,
+    });
+
+    if (error) {
+      setErrorMessage(error.message);
+    } else {
+      Alert.alert(
+        "Registro exitoso",
+        "Revisa tu email para confirmar la cuenta",
+      );
+      router.push(".."); // Volver al login
+    }
+
+    setLoading(false);
   };
 
   return (
@@ -33,7 +64,7 @@ export default function SigninScreen() {
           value={id}
           onChangeText={setId}
           autoCapitalize="none"
-          keyboardType="numeric"
+          keyboardType="email-address"
         />
       </View>
 
@@ -61,15 +92,21 @@ export default function SigninScreen() {
         />
       </View>
 
+      {errorMessage ? (
+        <Text style={styles.errorText}>{errorMessage}</Text>
+      ) : null}
+
       {/* Botón de registro */}
-      <TouchableOpacity onPress={() => console.log("Login")}>
+      <TouchableOpacity onPress={handleSignin} disabled={loading}>
         <LinearGradient
           colors={["#3163D6", "#6D92E0"]} // azul oscuro → azul claro
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
           style={styles.button}
         >
-          <Text style={styles.buttonText}>Registrarme</Text>
+          <Text style={styles.buttonText}>
+            {loading ? "Registrando..." : "Registrarme"}
+          </Text>
         </LinearGradient>
       </TouchableOpacity>
 

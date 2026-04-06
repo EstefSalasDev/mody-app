@@ -68,6 +68,14 @@ export default StyleSheet.create({
     textAlign: "center",
   },
 
+  errorText: {
+    color: "red",
+    textAlign: "center",
+    marginBottom: 20,
+    fontSize: 16,
+    fontWeight: "400",
+  },
+
   linkForgotPassword: {
     color: "#6186DA",
     textAlign: "right",

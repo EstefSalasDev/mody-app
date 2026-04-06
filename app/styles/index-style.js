@@ -76,6 +76,14 @@ export default StyleSheet.create({
     fontSize: 16,
   },
 
+  errorText: {
+    color: "red",
+    textAlign: "center",
+    marginBottom: 20,
+    fontSize: 16,
+    fontWeight: "400",
+  },
+
   linkSignIn: {
     fontSize: 16,
     fontWeight: "400",

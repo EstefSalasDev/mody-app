@@ -69,6 +69,7 @@ export default function LoginScreen() {
       <Text style={styles.linkSignIn} onPress={() => router.push("/Sign_In")}>
         ¿No tienes una cuenta? Regístrate
       </Text>
+      <Text onPress={() => router.push("/_sitemap")}>Sitemap</Text>
     </View>
   );
 }

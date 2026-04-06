@@ -2,6 +2,29 @@
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
+## Backend Setup with Supabase
+
+This app uses Supabase for authentication and database.
+
+1. Create a Supabase project at [supabase.com](https://supabase.com).
+
+2. Go to Settings > API in your Supabase dashboard.
+
+3. Copy the Project URL and anon/public key.
+
+4. Update `lib/supabase.js` with your credentials:
+
+   ```js
+   const supabaseUrl = "https://your-project.supabase.co";
+   const supabaseAnonKey = "your-anon-key";
+   ```
+
+5. In Supabase, go to Authentication > Settings and configure email confirmation if needed.
+
+6. The app will handle user registration and login automatically.
+
+   **Note:** The "Identificación" field is used as the email for authentication in Supabase.
+
 ## Get started
 
 1. Install dependencies

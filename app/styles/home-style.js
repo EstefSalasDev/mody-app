@@ -13,6 +13,7 @@ export default StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignContent: "center",
+    marginTop: 40,
   },
 
   logo: {
@@ -38,8 +39,16 @@ export default StyleSheet.create({
     marginBottom: 44,
   },
 
-  outerButton: {
+  innerButton: {
+    backgroundColor: "#fff", // color interno del botón
+    width: 223,
+    height: 139,
+    borderRadius: 11,
+    justifyContent: "center",
+    alignItems: "center",
     borderRadius: 10,
+    borderWidth: 3,
+    borderColor: "#3163D6",
     width: 230,
     height: 147,
     alignSelf: "center",
@@ -48,37 +57,25 @@ export default StyleSheet.create({
     alignItems: "center",
     marginBottom: 24,
   },
-
-  innerButton: {
-    backgroundColor: "#fff", // color interno del botón
-    width: 223,
-    height: 139,
-    borderRadius: 10,
-    justifyContent: "center",
-    alignItems: "center",
-  },
   buttonText: {
     fontWeight: "700",
     fontSize: 20,
     color: "#3266D8",
   },
 
-  menu: {
+  gradientMenu: {
+    width: 117,
+    height: 39,
     position: "absolute",
-    top: 40,
-    right: 0,
-    backgroundColor: "white",
-    paddingVertical: 10,
-    paddingHorizontal: 15,
-    borderRadius: 8,
-    elevation: 5, // sombra Android
-    shadowColor: "#000", // sombra iOS
-    shadowOpacity: 0.15,
-    shadowRadius: 6,
-    shadowOffset: { width: 0, height: 3 },
+    top: 0,
+    right: 2,
+    borderRadius: 5,
+    paddingLeft: 9,
+    justifyContent: "center",
   },
+
   menuItem: {
-    fontSize: 16,
-    color: "#333",
+    fontSize: 13,
+    color: "#fff",
   },
 });
